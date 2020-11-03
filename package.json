@@ -1,0 +1,24 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "simple blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smk131314/CRUD.git"
+  },
+  "author": "seungmin kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smk131314/CRUD/issues"
+  },
+  "homepage": "https://github.com/smk131314/CRUD#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.28.0"
+  }
+}
