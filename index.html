@@ -13,26 +13,16 @@
     <link rel="stylesheet" href="src/sass/main.scss" />
     <script defer src="src/js/controller.js"></script>
 
-    <title>forkify // Search over 1,000,000 recipes</title>
+    <title>Seungmin Kim</title>
   </head>
 
   <body>
     <div class="container">
       <header class="header">
-        <img src="src/img/logo.png" alt="Logo" class="header__logo" />
-        <form class="search">
-          <input
-            type="text"
-            class="search__field"
-            placeholder="Search over 1,000,000 recipes..."
-          />
-          <button class="btn search__btn">
-            <svg class="search__icon">
-              <use href="src/img/icons.svg#icon-search"></use>
-            </svg>
-            <span>Search</span>
-          </button>
-        </form>
+        <a href>
+          <img src="src/img/logo2.png" alt="Logo" class="header__logo" />
+        </a>
+        <!-- <a href class="header__logo">Seungmin Kim</a> -->
 
         <nav class="nav">
           <ul class="nav__list">
@@ -79,6 +69,12 @@
                   </li> -->
                 </ul>
               </div>
+            </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--login">
+                <img src="src/img/login.png" class="nav__icon" />
+                <span>Login</span>
+              </button>
             </li>
           </ul>
         </nav>
@@ -179,6 +175,7 @@
             </svg>
             <span class="recipe__info-data recipe__info-data--people">4</span>
             <span class="recipe__info-text">servings</span>
+
             <div class="recipe__info-buttons">
               <button class="btn--tiny btn--increase-servings">
                 <svg>
@@ -192,6 +189,7 @@
               </button>
             </div>
           </div>
+
           <div class="recipe__user-generated">
             <svg>
               <use href="src/img/icons.svg#icon-user"></use>
@@ -203,6 +201,7 @@
             </svg>
           </button>
         </div>
+
         <div class="recipe__ingredients">
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
@@ -216,6 +215,7 @@
                 pasta
               </div>
             </li>
+
             <li class="recipe__ingredient">
               <svg class="recipe__icon">
                 <use href="src/img/icons.svg#icon-check"></use>
@@ -228,6 +228,7 @@
             </li>
           </ul>
         </div>
+
         <div class="recipe__directions">
           <h2 class="heading--2">How to cook it</h2>
           <p class="recipe__directions-text">
