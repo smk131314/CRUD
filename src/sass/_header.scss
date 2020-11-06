@@ -17,6 +17,7 @@
   border-radius: 10rem;
   display: flex;
   align-items: center;
+  // TODO : padding 수정
   padding-left: 3rem;
   transition: all 0.3s;
 
@@ -92,6 +93,13 @@
       fill: $color-primary;
       margin-right: 0.7rem;
       transform: translateY(-1px);
+    }
+
+    // TODO login 아이콘 추가함, 크기수정
+    img {
+      height: 2.4rem;
+      width: 2.4rem;
+      margin-right: 1rem;
     }
 
     &:focus {
