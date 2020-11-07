@@ -1,17 +1,15 @@
 import * as model from "./model.js";
 import { MODAL_CLOSE_SEC } from "./config.js";
 import postView from "./views/postView.js";
-import searchView from "./views/searchView.js";
 import resultsView from "./views/resultsView.js";
 import paginationView from "./views/paginationView.js";
-// import bookmarksView from "./views/bookmarksView.js";
-// import addRecipeView from "./views/addRecipeView.js";
+import addPostView from "./views/addPostView.js";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { async } from "regenerator-runtime";
 
-const controlRecipes = async function () {
+const controlPosts = async function () {
   try {
     const id = window.location.hash.slice(1);
 
@@ -21,13 +19,10 @@ const controlRecipes = async function () {
     // 0) Update results view to mark selected search result
     resultsView.update(model.getSearchResultsPage());
 
-    // 1) Updating bookmarks view
-    // bookmarksView.update(model.state.bookmarks);
+    // 2) Loading post
+    await model.loadPost(id);
 
-    // 2) Loading recipe
-    await model.loadRecipe(id);
-
-    // 3) Rendering recipe
+    // 3) Rendering Post
     postView.render(model.state.post);
   } catch (err) {
     postView.renderError();
@@ -39,13 +34,13 @@ const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
 
-    // 2) Load search results
+    // 1) Load search results
     await model.loadSearchResults();
 
-    // 3) Render results
+    // 2) Render results
     resultsView.render(model.getSearchResultsPage());
 
-    // 4) Render initial pagination buttons
+    // 3) Render initial pagination buttons
     paginationView.render(model.state.posts);
   } catch (err) {
     console.log(err);
@@ -60,9 +55,39 @@ const controlPagination = function (goToPage) {
   paginationView.render(model.state.posts);
 };
 
+const controlAddPost = async function (newPost) {
+  try {
+    // Show loading spinner
+    addPostView.renderSpinner();
+
+    // Upload the new Post data
+    await model.uploadPost(newPost);
+    console.log(model.state.post);
+
+    // Render Post
+    postView.render(model.state.post);
+
+    // Success message
+    addPostView.renderMessage();
+
+    // Change ID in URL
+    window.history.pushState(null, "", `#${model.state.post.id}`);
+
+    // Close form window
+    setTimeout(function () {
+      addPostView.toggleWindow();
+    }, MODAL_CLOSE_SEC * 1000);
+  } catch (err) {
+    console.error("💥", err);
+    addPostView.renderError(err.message);
+  }
+};
+
 const init = function () {
-  postView.addHandlerRender(controlRecipes);
-  searchView.addHandlerSearch(controlSearchResults);
+  postView.addHandlerRender(controlPosts);
+  // searchView.addHandlerSearch(controlSearchResults);
+  controlSearchResults();
   paginationView.addHandlerClick(controlPagination);
+  addPostView.addHandlerUpload(controlAddPost);
 };
 init();

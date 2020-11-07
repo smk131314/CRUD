@@ -4,7 +4,7 @@ import View from "./View.js";
 import icons from "url:../../img/icons.svg"; // Parcel 2
 
 class PostView extends View {
-  _parentElement = document.querySelector(".recipe"); // TODO: class명 수정하기!!
+  _parentElement = document.querySelector(".post");
   _errorMessage = "We could not find that post. Please try another one!";
   _message = "";
 
@@ -22,55 +22,53 @@ class PostView extends View {
     });
   }
 
-  // TODO: HTML 수정하기, update, delete 아이콘 추가하기
   _generateMarkup() {
     return `
-    <figure class="recipe__fig">
+    <figure class="post__fig">
       <img src="${this._data.image}500" alt="${
       this._data.title
-    }" class="recipe__img" />
-      <h1 class="recipe__title">
+    }" class="post__img" />
+      <h1 class="post__title">
         <span>${this._data.title}</span>
       </h1>
     </figure>
 
-    <div class="recipe__details">
-      <div class="recipe__info">
-        <svg class="recipe__info-icon">
+    <div class="post__details">
+      <div class="post__info">
+        <svg class="post__info-icon">
           <use href="${icons}#icon-users"></use>
         </svg>
-        <span class="recipe__info-text">${this._data.publisher}</span>
+        <span class="post__info-text">user id ${this._data.userId}</span>
       </div>
 
-      <div class="recipe__user-generated ${this._data.key ? "" : "hidden"}">
+      <div class="post__user-generated ${this._data.key ? "" : "hidden"}">
         <svg>
           <use href="${icons}#icon-user"></use>
         </svg>
       </div>
-      <button class="btn--round btn--bookmark">
-        <svg class="">
-          <use href="${icons}#icon-bookmark${
-      this._data.bookmarked ? "-fill" : ""
-    }"></use>
-        </svg>
-      </button>
+      
+      
     </div>
 
-    <div class="recipe__ingredients">
+    <div class="post__text">
       <h2 class="heading--2">Lorem Ipsum dolor</h2>
+      <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  C/O https://placeholder.com/text/lorem-ipsum/</p>
+      <br>
+      <p><strong>Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
     </div>
     
-    <div class="recipe__directions">
+    <div class="post__directions">
       <h2 class="heading--2">How to cook it</h2>
-      <p class="recipe__directions-text">
-        This recipe was carefully designed and tested by
-        <span class="recipe__publisher">${
-          this._data.publisher
+      <p class="post__directions-text">
+        This post was carefully designed and tested by
+        <span class="post__publisher">${
+          this._data.userId
         }</span>. Please check out
         directions at their website.
       </p>
       <a
-        class="btn--small recipe__btn"
+        class="btn--small post__btn"
         href="${this._data.sourceUrl}"
         target="_blank"
       >
@@ -81,15 +79,6 @@ class PostView extends View {
       </a>
     </div>
       `;
-  }
-
-  // TODO: 스타일 수정하기
-  _generateMarkupText() {
-    return `
-    <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-  C/O https://placeholder.com/text/lorem-ipsum/</p>
-  `;
   }
 }
 

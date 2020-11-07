@@ -11,7 +11,6 @@ const timeout = function (s) {
 
 export const AJAX = async function (url, uploadData = undefined) {
   try {
-    // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
     const fetchPro = uploadData
       ? fetch(url, {
           method: "POST",
@@ -22,9 +21,11 @@ export const AJAX = async function (url, uploadData = undefined) {
         })
       : fetch(url);
 
-    // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise/race
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
     const data = await res.json();
+
+    //TEST
+    console.log("ajax uploaded data", data);
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
     return data;

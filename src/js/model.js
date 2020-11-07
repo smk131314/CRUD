@@ -13,25 +13,21 @@ export const state = {
   bookmarks: [],
 };
 
-///////////////////////////////////////////////////////////////////
-// TODO: recipe 변수명 수정하기
-
-const createRecipeObject = function (data) {
-  // const { recipe } = data.data;
-  const recipe = data;
+const createPostObject = function (data) {
+  const post = data;
   return {
-    id: recipe.id,
-    title: recipe.title,
-    publisher: recipe.userId,
+    id: post.id,
+    title: post.title,
+    userId: post.userId,
     image: IMG_URL,
-    ...(recipe.key && { key: recipe.key }),
+    ...(post.key && { key: post.key }),
   };
 };
 
-export const loadRecipe = async function (id) {
+export const loadPost = async function (id) {
   try {
     const data = await AJAX(`${API_URL}${id}`);
-    state.post = createRecipeObject(data);
+    state.post = createPostObject(data);
 
     if (state.bookmarks.some((bookmark) => bookmark.id === id))
       state.post.bookmarked = true;
@@ -54,7 +50,7 @@ export const loadSearchResults = async function () {
       return {
         id: rec.id,
         title: rec.title,
-        publisher: rec.userId,
+        userId: rec.userId,
         image: IMG_URL,
         ...(rec.key && { key: rec.key }),
       };
@@ -80,3 +76,20 @@ const init = function () {
   if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
+
+export const uploadPost = async function (newPost) {
+  try {
+    const post = {
+      title: newPost.title,
+      userId: newPost.userId,
+    };
+    //test
+    // console.log("newData: ", post);
+
+    const data = await AJAX(`${API_URL}`, post);
+    state.post = createPostObject(data);
+    // console.log("created new object", state.post);
+  } catch (err) {
+    throw err;
+  }
+};
