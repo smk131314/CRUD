@@ -27,11 +27,11 @@
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item">
-              <button class="nav__btn nav__btn--add-recipe">
+              <button class="nav__btn nav__btn--add-post">
                 <svg class="nav__icon">
                   <use href="src/img/icons.svg#icon-edit"></use>
                 </svg>
-                <span>Add recipe</span>
+                <span>Add post</span>
               </button>
             </li>
             <li class="nav__item">
@@ -49,9 +49,7 @@
                         <use href="src/img/icons.svg#icon-smile"></use>
                       </svg>
                     </div>
-                    <p>
-                      No bookmarks yet. Find a nice recipe and bookmark it :)
-                    </p>
+                    <p>No bookmarks yet. Find a nice post and bookmark it :)</p>
                   </div>
 
                   <!-- <li class="preview">
@@ -129,14 +127,14 @@
         </p>
       </div>
 
-      <div class="recipe">
+      <div class="post">
         <div class="message">
           <div>
             <svg>
               <use href="src/img/icons.svg#icon-smile"></use>
             </svg>
           </div>
-          <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+          <p>Start by searching for a nice photos. Have fun!</p>
         </div>
 
         <!-- <div class="spinner">
@@ -151,168 +149,83 @@
                 <use href="src/img/icons.svg#icon-alert-triangle"></use>
               </svg>
             </div>
-            <p>No recipes found for your query. Please try again!</p>
+            <p>No posts found for your query. Please try again!</p>
           </div> -->
 
         <!--
-        <figure class="recipe__fig">
-          <img src="src/img/test-1.jpg" alt="Tomato" class="recipe__img" />
-          <h1 class="recipe__title">
-            <span>Pasta with tomato cream sauce</span>
-          </h1>
-        </figure>
-        <div class="recipe__details">
-          <div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="src/img/icons.svg#icon-clock"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--minutes">45</span>
-            <span class="recipe__info-text">minutes</span>
-          </div>
-          <div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="src/img/icons.svg#icon-users"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--people">4</span>
-            <span class="recipe__info-text">servings</span>
+          <figure class="post__fig">
+      <img src="${this._data.image}500" alt="${
+      this._data.title
+    }" class="post__img" />
+      <h1 class="post__title">
+        <span>${this._data.title}</span>
+      </h1>
+    </figure>
 
-            <div class="recipe__info-buttons">
-              <button class="btn--tiny btn--increase-servings">
-                <svg>
-                  <use href="src/img/icons.svg#icon-minus-circle"></use>
-                </svg>
-              </button>
-              <button class="btn--tiny btn--increase-servings">
-                <svg>
-                  <use href="src/img/icons.svg#icon-plus-circle"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
+    <div class="post__details">
+      <div class="post__info">
+        <svg class="post__info-icon">
+          <use href="${icons}#icon-users"></use>
+        </svg>
+        <span class="post__info-text">user id ${this._data.userId}</span>
+      </div>
 
-          <div class="recipe__user-generated">
-            <svg>
-              <use href="src/img/icons.svg#icon-user"></use>
-            </svg>
-          </div>
-          <button class="btn--round">
-            <svg class="">
-              <use href="src/img/icons.svg#icon-bookmark-fill"></use>
-            </svg>
-          </button>
-        </div>
+      <div class="post__user-generated ${this._data.key ? "" : "hidden"}">
+        <svg>
+          <use href="${icons}#icon-user"></use>
+        </svg>
+      </div>
+      <button class="btn--round btn--update">
+        <img src="../../../src/img/plus.png" alt="Update button"/>
+      </button>
+      <button class="btn--round btn--delete">
+        <img src="../../../src/img/minus.png" alt="Delete button"/>
+      </button>
+      
+    </div>
 
-        <div class="recipe__ingredients">
-          <h2 class="heading--2">Recipe ingredients</h2>
-          <ul class="recipe__ingredient-list">
-            <li class="recipe__ingredient">
-              <svg class="recipe__icon">
-                <use href="src/img/icons.svg#icon-check"></use>
-              </svg>
-              <div class="recipe__quantity">1000</div>
-              <div class="recipe__description">
-                <span class="recipe__unit">g</span>
-                pasta
-              </div>
-            </li>
-
-            <li class="recipe__ingredient">
-              <svg class="recipe__icon">
-                <use href="src/img/icons.svg#icon-check"></use>
-              </svg>
-              <div class="recipe__quantity">0.5</div>
-              <div class="recipe__description">
-                <span class="recipe__unit">cup</span>
-                ricotta cheese
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="recipe__directions">
-          <h2 class="heading--2">How to cook it</h2>
-          <p class="recipe__directions-text">
-            This recipe was carefully designed and tested by
-            <span class="recipe__publisher">The Pioneer Woman</span>. Please check out
-            directions at their website.
-          </p>
-          <a
-            class="btn--small recipe__btn"
-            href="http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/"
-            target="_blank"
-          >
-            <span>Directions</span>
-            <svg class="search__icon">
-              <use href="src/img/icons.svg#icon-arrow-right"></use>
-            </svg>
-          </a>
-        </div>
+    <div class="post__text">
+      <h2 class="heading--2">Lorem Ipsum dolor</h2>
+      <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  C/O https://placeholder.com/text/lorem-ipsum/</p>
+      <br>
+      <p><strong>Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+    </div>
+    
+    <div class="post__directions">
+      <h2 class="heading--2">How to cook it</h2>
+      <p class="post__directions-text">
+        This post was carefully designed and tested by
+        <span class="post__publisher">${
+          this._data.userId
+        }</span>. Please check out
+        directions at their website.
+      </p>
+      <a
+        class="btn--small post__btn"
+        href="${this._data.sourceUrl}"
+        target="_blank"
+      >
+        <span>Directions</span>
+        <svg class="search__icon">
+          <use href="${icons}#icon-arrow-right"></use>
+        </svg>
+      </a>
+    </div>
         -->
       </div>
     </div>
 
     <div class="overlay hidden"></div>
-    <div class="add-recipe-window hidden">
+    <div class="add-post-window hidden">
       <button class="btn--close-modal">&times;</button>
       <form class="upload">
         <div class="upload__column">
-          <h3 class="upload__heading">Recipe data</h3>
+          <h3 class="upload__heading">Post data</h3>
           <label>Title</label>
           <input value="TEST" required name="title" type="text" />
-          <label>URL</label>
-          <input value="TEST" required name="sourceUrl" type="text" />
-          <label>Image URL</label>
-          <input value="TEST" required name="image" type="text" />
-          <label>Publisher</label>
-          <input value="TEST" required name="publisher" type="text" />
-          <label>Prep time</label>
-          <input value="23" required name="cookingTime" type="number" />
-          <label>Servings</label>
-          <input value="23" required name="servings" type="number" />
-        </div>
-
-        <div class="upload__column">
-          <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <input
-            value="0.5,kg,Rice"
-            type="text"
-            required
-            name="ingredient-1"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 2</label>
-          <input
-            value="1,,Avocado"
-            type="text"
-            name="ingredient-2"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 3</label>
-          <input
-            value=",,salt"
-            type="text"
-            name="ingredient-3"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 4</label>
-          <input
-            type="text"
-            name="ingredient-4"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 5</label>
-          <input
-            type="text"
-            name="ingredient-5"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 6</label>
-          <input
-            type="text"
-            name="ingredient-6"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
+          <label>Publisher Id</label>
+          <input value="TEST" required name="userId" type="number" />
         </div>
 
         <button class="btn upload__btn">
