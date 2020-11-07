@@ -2,8 +2,10 @@
 simple CRUD project
 
 ## execute example
-`clone repository
+```
+clone repository
 cd CRUD
 npm i
 npm start
-done!`
+done!
+```
